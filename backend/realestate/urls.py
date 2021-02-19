@@ -1,4 +1,3 @@
-from django import urls
 from django.contrib import admin
 from django.urls import path, include, re_path
 from django.views.generic import TemplateView
@@ -19,6 +18,7 @@ urlpatterns = [
     ),
     path("api/accounts/", include("accounts.urls")),
     path("api/realtors/", include("realtors.urls")),
+    path("api/listings/", include("listings.urls")),
     path("admin/", admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
