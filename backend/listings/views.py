@@ -120,10 +120,9 @@ class SearchView(APIView):
             num_days = (datetime.now(timezone.utc) - query.list_date).days
 
             if days_passed != 0:
-                if num_days > days_passed:
+                if num_days > int(days_passed[0:2]):
                     slug = query.slug
                     queryset = queryset.exclude(slug__iexact=slug)
-
         has_photos = data["has_photos"]
         if has_photos == "1+":
             has_photos = 1
